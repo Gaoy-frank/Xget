@@ -21,8 +21,10 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
+
       - name: Deploy Worker
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy _worker.js --name xget-gaoyang
